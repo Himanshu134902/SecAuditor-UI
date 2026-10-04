@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/navbar.jsx";
 import UrlInputBar from "./components/UrlInputBar.jsx";
 import ScoreCard from "./components/ScoreCard.jsx";
 import FindingCard from "./components/FindingCard.jsx";
