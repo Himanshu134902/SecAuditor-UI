@@ -18,7 +18,8 @@ export default function App() {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/scan", { url });
+      const API_BASE = import.meta.env.VITE_API_URL || "https://secauditor.onrender.com";
+const response = await axios.post(`${API_BASE}/api/scan`, { url });
       setScanResult(response.data);
     } catch (err) {
       console.error("Audit failed:", err);
