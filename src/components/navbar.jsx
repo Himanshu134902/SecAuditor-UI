@@ -12,8 +12,9 @@ export default function Navbar({ onSelectHistoricalScan }) {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:5000/api/history");
-      setHistoryList(response.data);
+      const API_BASE = import.meta.env.VITE_API_URL || "https://secauditor.onrender.com";
+      const response = await axios.get(`${API_BASE}/api/history`);
+      setHistoryList(Array.isArray(response.data) ? response.data : []);
     } catch (err) {
       console.error("Failed to load history:", err);
       setError("Unable to retrieve scan logs. Ensure backend is running.");
